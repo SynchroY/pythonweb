@@ -9,7 +9,7 @@ i = 0
 j = 0
 AmpMax = 20
 Amp1 = 10
-f1 = 60
+f1 = 50
 fs = 20000
 imax = 2048
 datalist=[]
@@ -47,8 +47,9 @@ def read():
 	msg=''
 	while True:
 		data = (ser.readline()).decode('utf-8')
-		msg+=data
-		print(msg)
+		msg = data
+		if (msg):
+			print(msg)
 		
 		
 if __name__ == "__main__":

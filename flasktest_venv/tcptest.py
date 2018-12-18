@@ -16,7 +16,7 @@ def tcplink():
 	sock, addr = s.accept()
 	wave = ()
 	i = 0
-	print(1)
+	print("连接成功")
 	while i<N:
 		i = i+1
 		print(i)
@@ -42,10 +42,8 @@ def tcplink():
 	mag0 = f[np.argmax(f)]*2/N/np.power(2,14)*AmpMax
 	print(mag0)
 	print(freq0)
-	print(str(freq0))
-	print(str(mag0))
-	sock.send(str(freq0).encode())
-	sock.send(str(mag0).encode())
+	sock.send(("%s%s%s"%("Base Frequence is ",str(freq0),"Hz\n")).encode())
+	sock.send(("%s%s%s"%("Magnitude is ",str(mag0),"\n")).encode())
 	sock.close()
 	s.close()
 	
